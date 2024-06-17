@@ -1,0 +1,15 @@
+services:
+  - docker
+
+script:
+  - docker-compose -f docker-compose-build.yaml build --parallel
+  - docker tag udagram-api-feed dqkqd/udagram-api-feed:v1
+  - docker tag udagram-api-user dqkqd/udagram-api-user:v1
+  - docker tag udagram-frontend dqkqd/udagram-frontend:v1
+  - docker tag udagram-reverseproxy dqkqd/udagram-reverseproxy:v1
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push dqkqd/udagram-api-feed:v1
+  - docker push dqkqd/udagram-api-user:v1
+  - docker push dqkqd/udagram-frontend:v1
+  - docker push dqkqd/udagram-reverseproxy:v1
