@@ -12,8 +12,6 @@ To help review your infrastructure, please include the following screenshots in 
 
 ![circleci-pipelines](images/circleci-pipelines.png)
 
-* GitHub repository’s settings showing your Travis webhook (can be found in Settings - Webhook)
-
 ## Kubernetes
 
 * To verify Kubernetes pods are deployed properly
@@ -22,11 +20,16 @@ To help review your infrastructure, please include the following screenshots in 
 kubectl get pods
 ```
 
+![kubectl-get-pods](images/kubectl-get-pods.png)
+
 * To verify Kubernetes services are properly set up
 
 ```bash
 kubectl describe services
 ```
+
+![kubectl-describe-services-1](images/kubectl-describe-services-1.png)
+![kubectl-describe-services-2](images/kubectl-describe-services-2.png)
 
 * To verify that you have horizontal scaling set against CPU usage
 
@@ -34,8 +37,12 @@ kubectl describe services
 kubectl describe hpa
 ```
 
+![kubectl-describe-hpa](images/kubectl-describe-hpa.png)
+
 * To verify that you have set up logging with a backend application
 
 ```bash
 kubectl logs {pod_name}
 ```
+
+![kubectl-logs](images/kubectl-logs.png)
