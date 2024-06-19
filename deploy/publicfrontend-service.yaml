@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: publicfrontend
+  labels:
+    app: udagram-frontend
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: udagram-frontend
